@@ -8,26 +8,26 @@ def gameWin(comp, you):
 
     # when computer chose rock
     elif comp == 'r':
-        if you=='s':
-            return 0
-        elif you=='p':
+        if you=='p':
             return 1
+        elif you=='s':
+            return 0
     
     # when computer chose paper
     elif comp == 'p':
-        if you=='r':
-            return 0
-        elif you=='s':
+        if you=='s':
             return 1
+        elif you=='r':
+            return 0
     
     # when computer chose scissors
     elif comp == 's':
-        if you=='p':
-            return 0
-        elif you=='r':
+        if you=='r':
             return 1
+        elif you=='p':
+            return 0
 
-print("Computer's Turn: rock(r) paper(p) or scissors(s)?")
+
 randomNo = random.randint(1, 3) 
 if randomNo == 1:
     comp = 'r'
@@ -36,7 +36,7 @@ elif randomNo == 2:
 elif randomNo == 3:
     comp = 's'
 
-you = input("Your Turn: rock(r) paper(p) or scissors(s)?")
+you = input("Your Turn: rock(r) paper(p) or scissors(s)?\n")
 g = gameWin(comp, you)
 
 print(f"Computer chose {comp}")
