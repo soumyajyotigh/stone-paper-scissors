@@ -63,7 +63,12 @@ while True:
 
 
     print(f"Score: You {user_score} - Computer {comp_score}")
-    play = input("Play again? (y/n): ").lower()
-    if play != 'y':
+    play = input("Play again? (yes/y or no/n): ").lower()
+
+    if play in ('yes','y'):
+        continue
+    elif play in ('no','n'):
         break
+    else:
+        print("Invalid input")    
     
