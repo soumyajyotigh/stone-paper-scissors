@@ -1,6 +1,11 @@
 import random
 
-# Rock Paper Scissors
+
+ROCK = 'r'
+SCISSORS = 's'
+PAPER = 'p'
+emojis = { ROCK: '✊', SCISSORS: '✂️', PAPER: '📄' }
+choices = tuple(emojis.keys())
 def gameWin(comp, you):
     # If two values are equal, it's a tie!
     if comp == you:
@@ -28,23 +33,37 @@ def gameWin(comp, you):
             return 0
 
 
-randomNo = random.randint(1, 3) 
-if randomNo == 1:
-    comp = 'r'
-elif randomNo == 2:
-    comp = 'p'
-elif randomNo == 3:
-    comp = 's'
+user_score = 0
+comp_score = 0
 
-you = input("Your Turn: rock(r) paper(p) or scissors(s)?\n")
-g = gameWin(comp, you)
 
-print(f"Computer chose {comp}")
-print(f"You chose {you}")
+while True:
+    randomNo = random.randint(1, 3) 
+    if randomNo == 1:
+        comp = 'r'
+    elif randomNo == 2:
+        comp = 'p'
+    elif randomNo == 3:
+        comp = 's'
 
-if g == None:
-    print("The result is a tie!")
-elif g:
-    print("You Win!")
-else:
-    print("You Lose!")
+    you = input("Your Turn: rock(r) paper(p) or scissors(s)?\n")
+    g = gameWin(comp, you)
+
+    print(f"Computer chose {emojis[comp]}")
+    print(f"You chose {emojis[you]}")
+
+    if g == None:
+        print("The result is a tie!")
+    elif g:
+        print("You Win!")
+        user_score += 1
+    else:
+        print("You Lose!")
+        comp_score += 1
+
+
+    print(f"Score: You {user_score} - Computer {comp_score}")
+    play = input("Play again? (y/n): ").lower()
+    if play != 'y':
+        break
+    
