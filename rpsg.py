@@ -1,4 +1,4 @@
-import numpy as np
+import random
 
 
 ROCK = 'r'
@@ -38,7 +38,7 @@ comp_score = 0
 
 
 while True:
-    randomNo = np.random.randint(1, 3) 
+    randomNo = random.randint(1, 3) 
     if randomNo == 1:
         comp = 'r'
     elif randomNo == 2:
